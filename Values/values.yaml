@@ -1,0 +1,47 @@
+keycloak:
+  extraEnvVars:
+    - name: KEYCLOAK_LOG_LEVEL
+      value: DEBUG
+
+
+ingress:
+  enabled: true
+  hostname: cloud.keycloak.stfc.ac.uk
+  ingressClassName: nginx
+  path: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  selfSigned: true
+  tls: true
+
+metrics:
+  enabled: true
+
+
+
+service:
+  type: NodePort
+  nodePorts:
+    http: 30080  
+
+postgresql:
+  enabled: true
+  postgresqlUsername: keycloak-admin
+  postgresqlPassword: 3E4qaUash9QzJIoHGoVg
+  postgresqlDatabase: keycloakdb
+
+readinessProbe:
+  httpGet:
+    path: /realms/master
+    port: http
+  initialDelaySeconds: 60
+  timeoutSeconds: 5
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1Gi"
+    cpu: "1"
