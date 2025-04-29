@@ -27,8 +27,8 @@ service:
 
 postgresql:
   enabled: true
-  postgresqlUsername: keycloak-admin
-  postgresqlPassword: 3E4qaUash9QzJIoHGoVg
+  postgresqlUsername: <USERNAME>
+  postgresqlPassword: <PASSWORD>
   postgresqlDatabase: keycloakdb
 
 readinessProbe:
