@@ -17,6 +17,20 @@ ingress:
 
 metrics:
   enabled: true
+  service:
+    ports:
+      http: 8080
+      https: 8443
+      metrics: 9000
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/path: "/realms/master/metrics"
+      prometheus.io/port: "9000"
+
+
+
+
+
 
 
 
