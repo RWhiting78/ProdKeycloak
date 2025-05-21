@@ -6,7 +6,7 @@ server:
         - role: endpoints
           namespaces:
             names:
-            - kctest
+            - keycloak
       metrics_path: /metrics
       basic_auth:
         username: <USERNAME>
