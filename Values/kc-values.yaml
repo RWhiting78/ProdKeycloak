@@ -1,3 +1,4 @@
+---
 keycloak:
   extraEnvVars:
     - name: KEYCLOAK_LOG_LEVEL
@@ -27,13 +28,6 @@ metrics:
       prometheus.io/path: "/realms/master/metrics"
       prometheus.io/port: "9000"
 
-
-
-
-
-
-
-
 service:
   type: NodePort
   nodePorts:
@@ -41,9 +35,9 @@ service:
 
 postgresql:
   enabled: true
+  postgresqlDatabase: keycloakdb
   postgresqlUsername: <USERNAME>
   postgresqlPassword: <PASSWORD>
-  postgresqlDatabase: keycloakdb
 
 readinessProbe:
   httpGet:
