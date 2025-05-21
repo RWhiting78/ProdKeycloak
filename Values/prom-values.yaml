@@ -1,3 +1,23 @@
+alertmanager:
+  configuration: |
+
+    global:
+      basic_auth:
+        username: <USERNAME>
+        password: <PASSWORD>
+    route:
+      group_by: ["alertname"]
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 1h
+      reciever: "testemail"
+
+
+    recievers:
+      - name: "testemail"
+        email_configs:
+          - to: "ryan.whiting@stfc.ac.uk"    
+
 server:
   scrapeInterval: 2m
   extraScrapeConfigs:
@@ -10,7 +30,7 @@ server:
       metrics_path: /metrics
       basic_auth:
         username: <USERNAME>
-        password: <USERNAME>
+        password: <PASSWORD>
       relabel_configs:
         - source_labels:
             - job
