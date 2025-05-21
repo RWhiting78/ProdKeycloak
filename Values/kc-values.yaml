@@ -31,7 +31,7 @@ metrics:
 service:
   type: NodePort
   nodePorts:
-    http: 30080  
+    http: 30080
 
 postgresql:
   enabled: true
