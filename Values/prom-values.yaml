@@ -1,12 +1,16 @@
 server:
+  scrapeInterval: 2m
   extraScrapeConfigs:
     - job_name: keycloak
       kubernetes_sd_configs:
         - role: endpoints
           namespaces:
             names:
-            - keycloak
+            - kctest
       metrics_path: /metrics
+      basic_auth:
+        username: <USERNAME>
+        password: <USERNAME>
       relabel_configs:
         - source_labels:
             - job
