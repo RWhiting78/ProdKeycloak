@@ -1,11 +1,7 @@
 ---
 alertmanager:
-  configuration: |
 
-    global:
-      basic_auth:
-        username: <USERNAME>
-        password: <PASSWORD>
+  configuration: |
     route:
       group_by: ["alertname"]
       group_wait: 30s
