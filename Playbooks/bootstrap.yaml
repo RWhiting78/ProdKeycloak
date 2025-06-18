@@ -9,8 +9,9 @@
        repo_url: "https://charts.bitnami.com/bitnami"
 
    - name: Installing K8s Python library.
-     ansible.builtin.pip:
-       name: kubernetes
+     become: true
+     ansible.builtin.apt:
+       name: python3-kubernetes
 
    - name: Creating cluster issuer.
      kubernetes.core.k8s:
