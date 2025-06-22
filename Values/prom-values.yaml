@@ -2,16 +2,19 @@
 alertmanager:
   enabled: true
   service:
-    # Input desired LB floating IP in quotation marks, floating IP needs to be assigned to project
+    # Input desired LB floating IP in quotation marks, 
+    # floating IP needs to be assigned to project
     loadBalancerIP: <LB IP>
 
 
 server:
   service:
-    # Input desired LB floating IP in quotation marks, floating IP needs to be assigned to project
+    # Input desired LB floating IP in quotation marks, 
+    # floating IP needs to be assigned to project
     loadBalancerIP: <LB IP>
   scrapeInterval: 2m
-  # Generic manual scrape configs to pick up metrics from Keycloak metrics source.
+  # Generic manual scrape configs to pick up metrics from Keycloak 
+  # metrics source.
   extraScrapeConfigs:
     - job_name: keycloak
       kubernetes_sd_configs:
@@ -21,7 +24,8 @@ server:
             - keycloak
       metrics_path: /metrics
       basic_auth:
-        # Input username and password for basic authentication if required, elsewise remove.
+        # Input username and password for basic authentication if required, 
+        # elsewise remove.
         username: <USERNAME>
         password: <PASSWORD>
       relabel_configs:
