@@ -7,6 +7,12 @@
      kubernetes.core.helm_repository:
        name: bitnami
        repo_url: "https://charts.bitnami.com/bitnami"
+
+   - name: Installing K8s Python library.
+     become: true
+     ansible.builtin.apt:
+       name: python3-kubernetes
+
    - name: Creating cluster issuer.
      kubernetes.core.k8s:
        state: present
