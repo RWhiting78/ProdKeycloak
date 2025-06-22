@@ -1,21 +1,13 @@
 ---
 alertmanager:
+  enabled: true
+  service:
+    loadBalancerIP: <LB IP>
 
-  configuration: |
-    route:
-      group_by: ["alertname"]
-      group_wait: 30s
-      group_interval: 5m
-      repeat_interval: 1h
-      reciever: "testemail"
-
-
-    recievers:
-      - name: "testemail"
-        email_configs:
-          - to: "ryan.whiting@stfc.ac.uk"
 
 server:
+  service:
+    loadBalancerIP: <LB IP>
   scrapeInterval: 2m
   extraScrapeConfigs:
     - job_name: keycloak
