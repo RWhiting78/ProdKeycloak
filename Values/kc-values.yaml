@@ -2,6 +2,7 @@
 keycloak:
   extraEnvVars:
     - name: KEYCLOAK_LOG_LEVEL
+      # Change logging level as required, options are: FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL, OFF. Info can be found here: https://www.keycloak.org/server/logging 
       value: DEBUG
 
 
@@ -36,6 +37,7 @@ service:
 postgresql:
   enabled: true
   postgresqlDatabase: keycloakdb
+  # Change to reflect desired Database username and password.
   postgresqlUsername: <USERNAME>
   postgresqlPassword: <PASSWORD>
 
@@ -47,6 +49,7 @@ readinessProbe:
   timeoutSeconds: 5
 
 resources:
+  # If more resources are required increase values here. 
   requests:
     memory: "512Mi"
     cpu: "500m"
