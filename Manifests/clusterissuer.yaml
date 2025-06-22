@@ -9,7 +9,7 @@ spec:
     email: [EMAIL HERE]
     # Include email the certificate should be registered to.
     privateKeySecretRef:
-      # Include a random string as a secret ref, 
+      # Include a random string as a secret ref,
       # by default should be: "letsencrypt-prod"
       name: [PRIVKEY REF STRING HERE]
     solvers:
