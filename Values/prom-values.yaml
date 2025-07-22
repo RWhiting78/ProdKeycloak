@@ -8,7 +8,7 @@ alertmanager:
 
 
 server:
-  service:
+  serviceeeeeeee:
     # Input desired LB floating IP in quotation marks,
     # floating IP needs to be assigned to project
     loadBalancerIP: <LB IP>
@@ -19,15 +19,23 @@ server:
     - job_name: keycloak
       kubernetes_sd_configs:
         - role: endpoints
-          namespaces:
-            names:
+          namespaces: 
+            names: 
             - keycloak
+
+
+
+
+
+
+
+            
       metrics_path: /metrics
       basic_auth:
         # Input username and password for basic authentication if required,
         # elsewise remove.
-        username: <USERNAME>
-        password: <PASSWORD>
+        username: admin
+        password: admin
       relabel_configs:
         - source_labels:
             - job
